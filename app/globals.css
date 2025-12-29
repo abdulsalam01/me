@@ -24,3 +24,57 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* galaxy background */
+.galaxy {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(1000px 600px at 20% 10%, rgba(120, 90, 255, 0.35), transparent 60%),
+    radial-gradient(900px 500px at 80% 20%, rgba(0, 200, 255, 0.25), transparent 55%),
+    radial-gradient(900px 700px at 50% 90%, rgba(255, 80, 180, 0.18), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(10, 15, 35, 1), rgba(3, 5, 15, 1) 60%, rgba(0, 0, 0, 1));
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-repeat: repeat;
+  background-size: 260px 260px;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+  animation: drift 80s linear infinite;
+}
+
+.stars::before {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.9) 50%, transparent 52%),
+    radial-gradient(1px 1px at 30% 80%, rgba(255, 255, 255, 0.7) 50%, transparent 52%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255, 255, 255, 0.8) 50%, transparent 52%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.6) 50%, transparent 52%),
+    radial-gradient(1px 1px at 40% 40%, rgba(255, 255, 255, 0.7) 50%, transparent 52%);
+}
+
+.stars::after {
+  opacity: 0.35;
+  background-size: 340px 340px;
+  animation-duration: 130s;
+  background-image:
+    radial-gradient(1px 1px at 15% 60%, rgba(255, 255, 255, 0.7) 50%, transparent 52%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255, 255, 255, 0.6) 50%, transparent 52%),
+    radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.6) 50%, transparent 52%);
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(8%, 12%, 0);
+  }
+}

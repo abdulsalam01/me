@@ -1,0 +1,49 @@
+{
+    "profile": {
+        "name": "Your Name",
+        "headline": "Software Engineer • Backend • Cloud",
+        "location": "Indonesia",
+        "summary": "I build reliable systems and elegant web experiences."
+    },
+    "links": [
+        {
+            "label": "GitHub",
+            "url": "https://github.com/your-username"
+        },
+        {
+            "label": "LinkedIn",
+            "url": "https://linkedin.com/in/your-handle"
+        },
+        {
+            "label": "Email",
+            "url": "mailto:you@email.com"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Galaxy Portfolio",
+            "role": "Fullstack",
+            "description": "Static Next.js portfolio with JSON-driven content.",
+            "tech": [
+                "Next.js",
+                "React",
+                "Tailwind",
+                "TypeScript"
+            ],
+            "live": "",
+            "repo": "https://github.com/your-username/me"
+        },
+        {
+            "title": "API Platform",
+            "role": "Backend",
+            "description": "REST APIs, caching, and observability patterns.",
+            "tech": [
+                "Node.js",
+                "PostgreSQL",
+                "Redis"
+            ],
+            "live": "",
+            "repo": ""
+        }
+    ]
+}
