@@ -159,14 +159,17 @@ export default function Hero({
 
                         {/* Micro badges */}
                         <div className="mt-10 flex flex-wrap gap-2 text-xs text-white/70">
-                            {["Fast UI", "Static Next.js", "Galaxy Theme"].map((t) => (
-                                <span
-                                    key={t}
-                                    className="rounded-full border border-white/12 bg-white/5 px-3 py-2 backdrop-blur-md"
-                                >
-                                    {t}
-                                </span>
-                            ))}
+                            {["Scalable Systems",
+                                "Reliable Architecture",
+                                "Elegant Interfaces",
+                                "Business-Ready Platforms",].map((t) => (
+                                    <span
+                                        key={t}
+                                        className="rounded-full border border-white/12 bg-white/5 px-3 py-2 backdrop-blur-md"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Abdul Salam - Portfolio",
   description: "Galaxy themed portfolio",
 };
 

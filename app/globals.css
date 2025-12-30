@@ -88,24 +88,23 @@ section[id] {
 }
 
 /* === Constellation Header effects === */
-.header-glow {
-  background:
-    radial-gradient(900px 260px at var(--gx, 50%) var(--gy, 20%), rgba(120, 90, 255, 0.16), transparent 60%),
-    radial-gradient(700px 220px at calc(var(--gx, 50%) + 18%) calc(var(--gy, 20%) + 8%), rgba(0, 200, 255, 0.12), transparent 60%),
-    radial-gradient(800px 260px at calc(var(--gx, 50%) - 18%) calc(var(--gy, 20%) + 10%), rgba(255, 80, 180, 0.08), transparent 60%);
-  opacity: 0.55;
-}
-
 .header-dust {
-  opacity: 0.18;
+  opacity: 1;
   background-size: 240px 240px;
   background-image:
-    radial-gradient(1px 1px at 15% 25%, rgba(255, 255, 255, 0.8) 50%, transparent 55%),
-    radial-gradient(1px 1px at 55% 45%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
-    radial-gradient(1px 1px at 85% 65%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
-    radial-gradient(1px 1px at 35% 75%, rgba(255, 255, 255, 0.5) 50%, transparent 55%),
-    radial-gradient(1px 1px at 70% 20%, rgba(255, 255, 255, 0.55) 50%, transparent 55%);
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+    radial-gradient(1px 1px at 10% 30%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
+    radial-gradient(1px 1px at 30% 70%, rgba(255, 255, 255, 0.35) 50%, transparent 55%),
+    radial-gradient(1px 1px at 65% 40%, rgba(255, 255, 255, 0.45) 50%, transparent 55%),
+    radial-gradient(1px 1px at 85% 55%, rgba(255, 255, 255, 0.30) 50%, transparent 55%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.14));
+}
+
+.header-glow {
+  background:
+    radial-gradient(600px 220px at 30% 30%, rgba(120, 90, 255, 0.16), transparent 60%),
+    radial-gradient(560px 220px at 70% 45%, rgba(0, 200, 255, 0.12), transparent 60%),
+    radial-gradient(640px 260px at 55% 70%, rgba(255, 80, 180, 0.08), transparent 60%);
+  mix-blend-mode: screen;
 }
 
 /* Mobile starmap layer */
@@ -514,6 +513,34 @@ section[id] {
   letter-spacing: 0.25px;
 }
 
+/* === Footer (dark, readable) === */
+.footer-nebula {
+  background:
+    radial-gradient(900px 420px at 20% 30%, rgba(120, 90, 255, 0.16), transparent 60%),
+    radial-gradient(700px 380px at 80% 25%, rgba(0, 200, 255, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 50% 95%, rgba(255, 80, 180, 0.08), transparent 60%);
+  opacity: 0.75;
+}
+
+.footer-vignette {
+  background:
+    radial-gradient(1200px 700px at 50% 40%, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.88) 75%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25) 35%, rgba(0, 0, 0, 0.85));
+}
+
+.footer-stars {
+  opacity: 0.18;
+  background-size: 260px 260px;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1px 1px at 28% 70%, rgba(255, 255, 255, 0.5) 50%, transparent 55%),
+    radial-gradient(1px 1px at 60% 35%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1px 1px at 82% 58%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
+    radial-gradient(1px 1px at 48% 88%, rgba(255, 255, 255, 0.45) 50%, transparent 55%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.18));
+}
+
+
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -523,5 +550,229 @@ section[id] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* === Portfolio visuals === */
+.portfolio-nebula {
+  background:
+    radial-gradient(900px 520px at var(--px, 50%) var(--py, 35%), rgba(120, 90, 255, 0.14), transparent 60%),
+    radial-gradient(700px 420px at calc(var(--px, 50%) + 18%) calc(var(--py, 35%) - 10%), rgba(0, 200, 255, 0.10), transparent 60%),
+    radial-gradient(800px 520px at calc(var(--px, 50%) - 18%) calc(var(--py, 35%) + 12%), rgba(255, 80, 180, 0.07), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.portfolio-vignette {
+  background:
+    radial-gradient(1200px 700px at 50% 40%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.86) 75%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.20) 30%, rgba(0, 0, 0, 0.78));
+}
+
+.portfolio-stars {
+  opacity: 0.18;
+  background-size: 260px 260px;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1px 1px at 28% 70%, rgba(255, 255, 255, 0.5) 50%, transparent 55%),
+    radial-gradient(1px 1px at 60% 35%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1px 1px at 82% 58%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
+    radial-gradient(1px 1px at 48% 88%, rgba(255, 255, 255, 0.45) 50%, transparent 55%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.18));
+  animation: portfolioDrift 140s linear infinite;
+}
+
+@keyframes portfolioDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(7%, 12%, 0);
+  }
+}
+
+.portfolio-title {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: portfolioShimmer 8s ease-in-out infinite;
+}
+
+@keyframes portfolioShimmer {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.14));
+  }
+}
+
+.portfolio-railGlow {
+  background:
+    radial-gradient(700px 340px at 30% 25%, rgba(120, 90, 255, 0.16), transparent 55%),
+    radial-gradient(640px 340px at 70% 60%, rgba(0, 200, 255, 0.12), transparent 55%),
+    radial-gradient(820px 440px at 50% 95%, rgba(255, 80, 180, 0.07), transparent 60%);
+  opacity: 0.9;
+}
+
+.portfolio-activeGlow {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(120, 90, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 70% 55%, rgba(0, 200, 255, 0.14), transparent 55%),
+    radial-gradient(circle at 40% 90%, rgba(255, 80, 180, 0.08), transparent 60%);
+  opacity: 0.9;
+}
+
+/* === Contact visuals === */
+.contact-nebula {
+  background:
+    radial-gradient(900px 520px at var(--cxp, 50%) var(--cyp, 35%), rgba(120, 90, 255, 0.14), transparent 60%),
+    radial-gradient(700px 420px at calc(var(--cxp, 50%) + 18%) calc(var(--cyp, 35%) - 10%), rgba(0, 200, 255, 0.10), transparent 60%),
+    radial-gradient(800px 520px at calc(var(--cxp, 50%) - 18%) calc(var(--cyp, 35%) + 12%), rgba(255, 80, 180, 0.07), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.contact-vignette {
+  background:
+    radial-gradient(1200px 700px at 50% 40%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.86) 75%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.20) 30%, rgba(0, 0, 0, 0.80));
+}
+
+.contact-stars {
+  opacity: 0.16;
+  background-size: 260px 260px;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1px 1px at 28% 70%, rgba(255, 255, 255, 0.5) 50%, transparent 55%),
+    radial-gradient(1px 1px at 60% 35%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1px 1px at 82% 58%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
+    radial-gradient(1px 1px at 48% 88%, rgba(255, 255, 255, 0.45) 50%, transparent 55%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.16));
+  animation: contactDrift 150s linear infinite;
+}
+
+@keyframes contactDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(8%, 12%, 0);
+  }
+}
+
+.contact-title {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: contactShimmer 8s ease-in-out infinite;
+}
+
+@keyframes contactShimmer {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.14));
+  }
+}
+
+/* console glow */
+.contact-consoleGlow {
+  background:
+    radial-gradient(700px 320px at 30% 25%, rgba(120, 90, 255, 0.16), transparent 55%),
+    radial-gradient(640px 320px at 70% 60%, rgba(0, 200, 255, 0.12), transparent 55%),
+    radial-gradient(820px 420px at 50% 95%, rgba(255, 80, 180, 0.07), transparent 60%);
+  opacity: 0.9;
+}
+
+/* portal glow on cards */
+.contact-portalGlow {
+  background:
+    radial-gradient(circle at 25% 25%, rgba(120, 90, 255, 0.20), transparent 55%),
+    radial-gradient(circle at 70% 55%, rgba(0, 200, 255, 0.14), transparent 55%),
+    radial-gradient(circle at 45% 90%, rgba(255, 80, 180, 0.09), transparent 60%);
+  opacity: 1;
+}
+
+/* comet */
+.contact-comet {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.22);
+}
+
+.contact-comet::before {
+  content: "";
+  position: absolute;
+  left: -90px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  filter: blur(0.2px);
+}
+
+.contact-comet::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(120, 90, 255, 0.18), transparent 60%),
+    radial-gradient(circle, rgba(0, 200, 255, 0.12), transparent 60%);
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+/* warp dot animation on CTA */
+.contact-warpDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+
+.contact-warpDot::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  opacity: 0.6;
+  animation: warpPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes warpPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(0.7);
+    opacity: 0.15;
   }
 }

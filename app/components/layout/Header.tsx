@@ -21,8 +21,6 @@ export default function Header() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState<string>("#home");
-    const [xy, setXy] = useState({ x: 0.5, y: 0.2 });
-    const raf = useRef<number | null>(null);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8);
@@ -68,51 +66,29 @@ export default function Header() {
         return () => obs.disconnect();
     }, []);
 
-    // Parallax glow based on pointer position
-    useEffect(() => {
-        const onMove = (e: PointerEvent) => {
-            if (raf.current) cancelAnimationFrame(raf.current);
-            raf.current = requestAnimationFrame(() => {
-                const w = window.innerWidth || 1;
-                const h = window.innerHeight || 1;
-                setXy({ x: clamp(e.clientX / w, 0, 1), y: clamp(e.clientY / h, 0, 1) });
-            });
-        };
-        window.addEventListener("pointermove", onMove, { passive: true });
-        return () => {
-            window.removeEventListener("pointermove", onMove);
-            if (raf.current) cancelAnimationFrame(raf.current);
-        };
-    }, []);
-
     const shell = useMemo(() => {
         return [
-            "fixed top-0 z-50 w-full transition duration-300",
+            "fixed top-0 z-50 w-full transition-all duration-300",
             scrolled
-                ? "bg-black/45 backdrop-blur-xl border-b border-white/12"
-                : "bg-black/20 backdrop-blur-md border-b border-white/8",
+                ? "bg-black/65 backdrop-blur-xl border-b border-white/12 shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+                : "bg-black/85 border-b border-white/5",
         ].join(" ");
     }, [scrolled]);
-
-    const glowStyle = useMemo(
-        () =>
-            ({
-                // used by CSS vars below
-                ["--gx" as any]: `${Math.round(xy.x * 100)}%`,
-                ["--gy" as any]: `${Math.round(xy.y * 100)}%`,
-            }) as React.CSSProperties,
-        [xy]
-    );
 
     const close = () => setOpen(false);
 
     return (
-        <header className={shell} style={glowStyle}>
+        <header className={shell}>
             {/* glow + star dust layer */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                <div className="absolute inset-0 header-glow" />
-                <div className="absolute inset-0 header-dust" />
+                {scrolled && (
+                    <>
+                        <div className="absolute inset-0 header-dust opacity-80" />
+                        <div className="absolute inset-0 header-glow opacity-100" />
+                    </>
+                )}
             </div>
+
 
             <Container>
                 <div className="relative flex h-16 items-center justify-between">
@@ -123,25 +99,41 @@ export default function Header() {
                        focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
                     >
                         <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-white/12 bg-white/6">
-                            <span className="absolute inset-0 opacity-80 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.22),transparent_55%)]" />
-                            <span className="absolute inset-0 opacity-70 bg-[conic-gradient(from_180deg,rgba(120,90,255,0.55),rgba(0,200,255,0.45),rgba(255,80,180,0.30),rgba(120,90,255,0.55))]" />
-                            <span className="absolute -inset-6 blur-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_60%)]" />
-                            <span className="relative text-[10px] font-extrabold tracking-[0.35em] pl-[0.35em]">
-                                ME
-                            </span>
+                            {/* subtle orbit glow */}
+                            <span className="pointer-events-none absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_30%_25%,rgba(120,90,255,0.25),transparent_55%)]" />
+
+                            {/* image */}
+                            <img
+                                src="/me/images/profile.jpeg"
+                                alt="Abdul Salam"
+                                className="relative z-10 h-full w-full object-cover rounded-full"
+                            />
+
+                            {/* hover aura */}
+                            <span className="pointer-events-none absolute -inset-4 opacity-0 blur-xl transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle,rgba(255,255,255,0.14),transparent_60%)]" />
                         </span>
 
                         <div className="leading-tight">
-                            <div className="text-sm font-semibold tracking-wide">Your Name</div>
+                            <div className="text-sm font-semibold tracking-wide">ABDUL SALAM</div>
                             <div className="text-[11px] text-white/60">Constellation Portfolio</div>
                         </div>
                     </a>
 
                     {/* DESKTOP: constellation nav */}
                     <nav className="hidden md:flex items-center gap-3">
-                        <div className="relative rounded-full border border-white/10 bg-white/5 px-2 py-1 backdrop-blur-md">
+                        <div
+                            className={[
+                                "relative rounded-full border px-2 py-1 backdrop-blur-md transition",
+                                scrolled ? "border-white/12 bg-white/8" : "border-white/10 bg-black/20",
+                            ].join(" ")}
+                        >
                             {/* “orbit line” */}
-                            <div className="pointer-events-none absolute inset-x-2 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                            <div
+                                className={[
+                                    "pointer-events-none absolute inset-x-2 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent to-transparent",
+                                    scrolled ? "via-white/18" : "via-white/10",
+                                ].join(" ")}
+                            />
 
                             <div className="relative flex items-center gap-1">
                                 {NAV.map((item, idx) => {
@@ -193,15 +185,15 @@ export default function Header() {
                         {/* CTA */}
                         <a
                             href="#contact"
-                            className="relative inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white
+                            className="group relative inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white
                          border border-white/12 bg-white/8 backdrop-blur-md transition
                          hover:bg-white/12 hover:border-white/18
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
                         >
                             <span className="relative z-10">Contact</span>
                             <span
-                                className="pointer-events-none absolute -inset-8 -z-10 opacity-0 blur-2xl transition duration-300 hover:opacity-100
-                           bg-[radial-gradient(circle,rgba(120,90,255,0.18),transparent_60%)]"
+                                className="pointer-events-none absolute -inset-8 -z-10 opacity-0 blur-2xl transition duration-300 group-hover:opacity-100
+   bg-[radial-gradient(circle,rgba(120,90,255,0.18),transparent_60%)]"
                                 aria-hidden="true"
                             />
                         </a>
@@ -291,10 +283,10 @@ export default function Header() {
                                             href={item.href}
                                             onClick={close}
                                             className={[
-                                                "group relative overflow-hidden rounded-2xl border p-4 transition",
-                                                isActive
-                                                    ? "border-white/22 bg-white/10"
-                                                    : "border-white/12 bg-white/5 hover:bg-white/8 hover:border-white/18",
+                                                "group relative inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition",
+                                                scrolled
+                                                    ? "text-white border border-white/18 bg-white/12 backdrop-blur-md hover:bg-white/16"
+                                                    : "text-white border border-white/12 bg-black/70 hover:bg-black/85",
                                             ].join(" ")}
                                         >
                                             <div className="flex items-center gap-3">

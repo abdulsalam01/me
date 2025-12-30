@@ -1,0 +1,40 @@
+{
+    "eyebrow": "CONTACT",
+    "title": "Open a wormhole to my inbox",
+    "subtitle": "If you’ve read this far, we’re basically friends. Drop a message—I'll respond faster than a build pipeline that *actually* caches.",
+    "cards": [
+        {
+            "title": "Hire Me (I come with logs)",
+            "desc": "Need someone who ships, measures, and fixes what breaks? I’m your person.",
+            "cta": "Send a mission brief",
+            "href": "mailto:abdulsalam121196@gmail.com?subject=Mission%20Brief%20—%20Let’s%20Build&body=Hi%20Abdul%20Salam,%0A%0AI%20saw%20your%20portfolio.%20Here’s%20the%20mission:%0A%0A-%20Project:%0A-%20Timeline:%0A-%20Budget:%0A-%20Stack:%0A%0AOptional:%20Drop%20a%20link%20to%20specs.%0A%0AThanks!"
+        },
+        {
+            "title": "Collab (let’s cause a good incident)",
+            "desc": "Hackathon, open-source, weird experiments, galaxy UI—I'm in.",
+            "cta": "Open the portal",
+            "href": "https://www.linkedin.com/in/abdulsalam-01"
+        },
+        {
+            "title": "Coffee Chat (no small talk)",
+            "desc": "Tell me what you’re building. I’ll tell you what will break first.",
+            "cta": "Schedule a chat",
+            "href": "mailto:abdulsalam121196@gmail.com?subject=Coffee%20Chat%20—%20No%20Small%20Talk&body=Hi%20Abdul%20Salam,%0A%0AI%20want%20a%2015-min%20chat.%20Topic:%20%5B%20%5D%0A%0AMy%20availability:%0A-"
+        }
+    ],
+    "quickLinks": [
+        {
+            "label": "Email",
+            "href": "mailto:abdulsalam121196@gmail.com"
+        },
+        {
+            "label": "GitHub",
+            "href": "https://github.com/abdulsalam01"
+        },
+        {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/in/abdulsalam-01"
+        }
+    ],
+    "footerNote": "PS: If you send “hello”, I will reply with a meme and a roadmap."
+}

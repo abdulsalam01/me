@@ -1,49 +1,477 @@
 {
-    "profile": {
-        "name": "Your Name",
-        "headline": "Software Engineer • Backend • Cloud",
-        "location": "Indonesia",
-        "summary": "I build reliable systems and elegant web experiences."
-    },
-    "links": [
-        {
-            "label": "GitHub",
-            "url": "https://github.com/your-username"
-        },
-        {
-            "label": "LinkedIn",
-            "url": "https://linkedin.com/in/your-handle"
-        },
-        {
-            "label": "Email",
-            "url": "mailto:you@email.com"
-        }
-    ],
+    "eyebrow": "PORTFOLIO",
+    "title": "Artifacts from my universe",
+    "subtitle": "Not a grid — a flight path. Systems I’ve shipped, scaled, and made cheaper to run.",
     "projects": [
         {
-            "title": "Galaxy Portfolio",
-            "role": "Fullstack",
-            "description": "Static Next.js portfolio with JSON-driven content.",
-            "tech": [
-                "Next.js",
-                "React",
-                "Tailwind",
-                "TypeScript"
+            "id": "mms",
+            "title": "MMS — Procurement & Accounting Platform",
+            "tagline": "Event-driven PR → PO → GR → Invoice → payment terms, built for real operations.",
+            "year": "2025",
+            "role": "Lead Engineer",
+            "stack": [
+                "TypeScript",
+                "Bun",
+                "Hono",
+                "Prisma",
+                "PostgreSQL",
+                "RabbitMQ",
+                "Netdata"
             ],
-            "live": "",
-            "repo": "https://github.com/your-username/me"
+            "impact": [
+                "Designed idempotent events + sync patterns to keep procurement flows consistent under retries",
+                "Modular boundaries (validation/service/controller/routes) to keep velocity high without spaghetti",
+                "Instrumentation-first (latency + traces + logs) so performance work is measurable"
+            ],
+            "links": [
+                {
+                    "label": "Case Study",
+                    "href": "#contact"
+                },
+                {
+                    "label": "Repo",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "violet"
         },
         {
-            "title": "API Platform",
-            "role": "Backend",
-            "description": "REST APIs, caching, and observability patterns.",
-            "tech": [
-                "Node.js",
-                "PostgreSQL",
-                "Redis"
+            "id": "csuite",
+            "title": "csuite.co.id — System Integrator Website",
+            "tagline": "A fast, structured marketing site that sells services without feeling like a template.",
+            "year": "2025",
+            "role": "Designer + Engineer",
+            "stack": [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind",
+                "Static Export"
             ],
-            "live": "",
-            "repo": ""
+            "impact": [
+                "Designed information architecture for services (data center, SI, network, managed services)",
+                "Optimized static assets + routing for deep slugs and consistent deployment behavior",
+                "Built to be content-driven so updates don’t require code rewrites"
+            ],
+            "links": [
+                {
+                    "label": "Live",
+                    "href": "https://csuite.co.id/"
+                },
+                {
+                    "label": "Notes",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "cyan"
+        },
+        {
+            "id": "tefarin",
+            "title": "Tefarin — Herbal Brand + Landing System",
+            "tagline": "Conversion-first landing + brand visuals for a premium health product.",
+            "year": "2025",
+            "role": "Builder (Brand + Web)",
+            "stack": [
+                "Next.js",
+                "Tailwind",
+                "Static Export",
+                "Content JSON"
+            ],
+            "impact": [
+                "Built a clean sales narrative (pain → solution → proof → CTA) without cheap marketing vibes",
+                "Designed visual system (luxury, spotlight, product focus) for trust + clarity",
+                "Kept everything lightweight for fast mobile loading"
+            ],
+            "links": [
+                {
+                    "label": "Live",
+                    "href": "#contact"
+                },
+                {
+                    "label": "Brand Kit",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "pink"
+        },
+        {
+            "id": "galaxy-portfolio",
+            "title": "Galaxy Portfolio (This Site)",
+            "tagline": "Cinematic UI, static export, JSON-driven content — fast and maintainable.",
+            "year": "2025",
+            "role": "Designer + Engineer",
+            "stack": [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind"
+            ],
+            "impact": [
+                "No heavy animation libraries: smooth motion with minimal runtime cost",
+                "GitHub Pages-ready export pipeline",
+                "Data lives in JSON so editing content stays frictionless"
+            ],
+            "links": [
+                {
+                    "label": "Live",
+                    "href": "#home"
+                },
+                {
+                    "label": "Repo",
+                    "href": "https://github.com/"
+                }
+            ],
+            "accent": "indigo"
+        },
+        {
+            "id": "tokopedia-hub",
+            "title": "Tokopedia — Hub Management System",
+            "tagline": "Operational + technology efficiency at logistics scale.",
+            "year": "2022–2023",
+            "role": "Software Engineer",
+            "stack": [
+                "Go",
+                "Microservices",
+                "AWS/GCP",
+                "Data + Routing Logic"
+            ],
+            "impact": [
+                "Implemented cross-dock hub operations system",
+                "Trimmed technology + operational expenses by 70% annually",
+                "Improved checkout conversions and reduced shipping costs via location-aware selection"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "emerald"
+        },
+        {
+            "id": "courier-routing",
+            "title": "Tokopedia — Custom Courier Routing Engine",
+            "tagline": "Smarter routing decisions → faster delivery + lower logistics spend.",
+            "year": "2022–2023",
+            "role": "Software Engineer",
+            "stack": [
+                "Go",
+                "Services",
+                "Optimization Logic",
+                "Observability"
+            ],
+            "impact": [
+                "Accelerated last-mile delivery through custom routing logic",
+                "Reduced logistics spend through more accurate assignment decisions",
+                "Designed to be measurable: latency + success metrics visible from day one"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "cyan"
+        },
+        {
+            "id": "shipping-platform",
+            "title": "Node.js Shipping Platform (User + Admin Portals)",
+            "tagline": "Unified shipping, tracking, and rates at real daily volume.",
+            "year": "2021–2023",
+            "role": "Fullstack Engineer",
+            "stack": [
+                "Node.js",
+                "REST APIs",
+                "Integrations",
+                "SQL/NoSQL"
+            ],
+            "impact": [
+                "Integrated 6 major Indonesian couriers",
+                "Processed >10K shipments/day with 99.9% uptime",
+                "Cut new-courier onboarding time by 50% and reduced order-fulfillment steps by 40%"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "violet"
+        },
+        {
+            "id": "gcp-aws-microservices",
+            "title": "Cloud Microservices Stack (AWS + GCP)",
+            "tagline": "Secure APIs with sub-100ms p95 and cost-aware scaling.",
+            "year": "2021–2023",
+            "role": "Backend & Cloud Engineer",
+            "stack": [
+                "Go",
+                "GraphQL",
+                "AWS",
+                "GCP",
+                "Terraform",
+                "GitHub Actions"
+            ],
+            "impact": [
+                "Delivered REST/GraphQL APIs with sub-100ms p95 latency",
+                "Doubled throughput while trimming cloud compute spend by 30%",
+                "Enabled zero-downtime deployments and 99.9% uptime"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "blue"
+        },
+        {
+            "id": "pixel8-nft",
+            "title": "Pixel8Labs — NFT + DeFi Platform",
+            "tagline": "Production-grade Web3 launch with real volume and transactions.",
+            "year": "2023–2024",
+            "role": "Senior Product Engineer",
+            "stack": [
+                "Go",
+                "Solidity",
+                "Web3",
+                "APIs",
+                "Analytics"
+            ],
+            "impact": [
+                "Powered launch of 7,500 NFTs with 420 ETH initial volume",
+                "Built secure wallet auth + multi-currency payments supporting 10K+ transactions",
+                "Deployed gas-optimized royalty contracts with migration readiness"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "amber"
+        },
+        {
+            "id": "ai-chat-optimization",
+            "title": "AI Chat Stack Re-Engineering",
+            "tagline": "Speed up responses without buying more infrastructure.",
+            "year": "2024",
+            "role": "Lead Engineer",
+            "stack": [
+                "Node.js",
+                "DB",
+                "Caching",
+                "Tooling",
+                "Observability"
+            ],
+            "impact": [
+                "Re-engineered DB + code + tooling to slash response time",
+                "Improved user engagement without adding new infrastructure",
+                "Made performance work repeatable via tracing + profiling discipline"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "pink"
+        },
+        {
+            "id": "scalability-toolkit",
+            "title": "Scalability Toolkit (Microservices Bottleneck Finder)",
+            "tagline": "Find the real bottlenecks — then fix them with confidence.",
+            "year": "2024",
+            "role": "Builder",
+            "stack": [
+                "Observability",
+                "Load Testing",
+                "Tracing",
+                "Dashboards"
+            ],
+            "impact": [
+                "Surfaced bottlenecks across microservices",
+                "Raised throughput and reliability through targeted fixes",
+                "Converted vague “it’s slow” into measurable action items"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "indigo"
+        },
+        {
+            "id": "platform-latency",
+            "title": "Performance Program — Latency + Cost Wins",
+            "tagline": "Make systems faster and cheaper by design, not by luck.",
+            "year": "2024–2025",
+            "role": "Lead Engineer",
+            "stack": [
+                "Tracing",
+                "Caching",
+                "DB Tuning",
+                "CI/CD"
+            ],
+            "impact": [
+                "Cut P99 latency by 40% and reduced cloud cost by 25%",
+                "Cut P99 API latency by 45ms on key paths",
+                "Scaled platforms 5× with zero Sev-1 incidents"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "cyan"
+        },
+        {
+            "id": "pdam-erp",
+            "title": "Lean ERP — PDAM (Inventory, Billing, Analytics)",
+            "tagline": "Operational reporting that stops being a waiting game.",
+            "year": "2021",
+            "role": "Lead Engineer",
+            "stack": [
+                "Backend",
+                "SQL",
+                "Caching",
+                "Reporting"
+            ],
+            "impact": [
+                "Query + cache refactors cut report latency by 45%",
+                "Improved reliability of billing and inventory workflows",
+                "Enabled faster data-driven decisions for operations"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "emerald"
+        },
+        {
+            "id": "kampus-portal",
+            "title": "Student–Alumni Web Portal (Kampus Merdeka)",
+            "tagline": "Stable platform serving thousands of users with automated QA.",
+            "year": "2022",
+            "role": "Team Lead (4 devs)",
+            "stack": [
+                "Web",
+                "Automated Testing",
+                "Security"
+            ],
+            "impact": [
+                "Serves thousands of Kampus Merdeka users",
+                "Enforced automated Katalon tests for zero critical defects",
+                "Delivered secure file-storage API aligned with ISO 27001 practices"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "violet"
+        },
+        {
+            "id": "smartcity-tourism",
+            "title": "Smart-City Tourism Platform (Maps + Geo + Travel APIs)",
+            "tagline": "A public-facing experience that performs across all devices.",
+            "year": "2020–2021",
+            "role": "Fullstack Developer",
+            "stack": [
+                "HTML/CSS/JS",
+                "APIs",
+                "Maps",
+                "Auth"
+            ],
+            "impact": [
+                "Scored 95+ Lighthouse UX across devices",
+                "Launched with 0 security incidents",
+                "Cut change-request cycles by 30% via tighter client feedback loops"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "blue"
+        },
+        {
+            "id": "bridge-inspection",
+            "title": "INSPEKSI JEMBATAN — Field Inspection App + API",
+            "tagline": "Digitized inspection workflows aligned with government standards.",
+            "year": "2016",
+            "role": "Mobile & API Developer",
+            "stack": [
+                "Android",
+                "REST API",
+                "Offline-first"
+            ],
+            "impact": [
+                "Digitized bridge inspection workflows and scheduling",
+                "Improved field reporting consistency under real constraints",
+                "Designed for operational continuity in low-connectivity areas"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "indigo"
+        },
+        {
+            "id": "road-reporting",
+            "title": "JALAN KITA — Road Condition Reporting",
+            "tagline": "On-site reporting to prioritize repairs and safety compliance.",
+            "year": "2016",
+            "role": "Mobile & API Developer",
+            "stack": [
+                "Android",
+                "Backend",
+                "Data Capture"
+            ],
+            "impact": [
+                "Enabled field teams to report road conditions directly from the site",
+                "Improved prioritization of repairs via structured reporting",
+                "Built to handle imperfect environments and messy input"
+            ],
+            "links": [
+                {
+                    "label": "Summary",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "cyan"
+        },
+        {
+            "id": "mentorship",
+            "title": "Engineering Mentorship — Eduwork",
+            "tagline": "Systematic coaching with measurable outcomes.",
+            "year": "2023–Present",
+            "role": "Tech Mentor",
+            "stack": [
+                "Code Review",
+                "Curriculum",
+                "System Design"
+            ],
+            "impact": [
+                "Coached 120+ learners; 82% landed junior full-stack roles within 3 months",
+                "Reduced average assignment rework cycles by 53%",
+                "Raised problem-solving scores by +18 percentage points"
+            ],
+            "links": [
+                {
+                    "label": "Program",
+                    "href": "#contact"
+                }
+            ],
+            "accent": "amber"
         }
     ]
 }

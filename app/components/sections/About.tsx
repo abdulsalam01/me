@@ -24,32 +24,33 @@ function clamp(n: number, min: number, max: number) {
 export default function About({
     id = "about",
     eyebrow = "ABOUT",
-    title = "I build systems that feel like products.",
-    subtitle = "Engineering-first, design-aware. I care about reliability, performance, and the details users feel.",
+    title = "I think in systems, not features.",
+    subtitle =
+    "Most problems aren’t technical — they’re structural. I design software by understanding how decisions, constraints, and people interact over time.",
     stats = [
-        { label: "Shipping mindset", value: "Always" },
-        { label: "Obsessed with performance", value: "Yes" },
-        { label: "Clean architecture", value: "Non-negotiable" },
+        { label: "Primary instinct", value: "Understand the problem first" },
+        { label: "Default approach", value: "Design before code" },
+        { label: "Quality bar", value: "Production-grade only" },
     ],
     pills = [
-        { label: "Backend" },
+        { label: "Backend Architecture" },
         { label: "System Design" },
-        { label: "Cloud" },
-        { label: "DX / Tooling" },
-        { label: "UI Polish" },
+        { label: "Cloud & Infra" },
+        { label: "Developer Experience" },
+        { label: "Product Thinking" },
     ],
     highlights = [
         {
-            title: "Reliability",
-            desc: "Idempotent flows, observability, and failure-proof patterns.",
+            title: "Engineering Judgment",
+            desc: "Knowing when to optimize, when to simplify, and when to leave things alone.",
         },
         {
-            title: "Speed",
-            desc: "Fast UIs, tight payloads, and sensible caching.",
+            title: "Execution Discipline",
+            desc: "Shipping clean, observable, and maintainable systems — not half-solutions.",
         },
         {
-            title: "Clarity",
-            desc: "Readable code, clean boundaries, and maintainable systems.",
+            title: "Long-Term Thinking",
+            desc: "I build software that survives growth, change, and real-world usage.",
         },
     ],
 }: Props) {

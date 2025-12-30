@@ -1,20 +1,21 @@
 import Hero from "./components/sections/Hero";
-import Showreel from "./components/sections/Showreel";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
+import Portfolio from "./components/sections/Portfolio";
+import Contact from "./components/sections/Contact";
 
 export default function Page() {
   return (
     <main className="text-white">
       <Hero
         videoSrc="/me/videos/hero.mp4"
-        name="Your Name"
-        headline="Build Systems. Ship Beauty."
-        subheadline="Backend reliability + frontend polish. Galaxy visuals, fast UX, and clean engineering."
+        name="Abdul Salam"
+        headline="Engineering systems that scale — beautifully."
+        subheadline="I design and build reliable software, elegant interfaces, and business-ready platforms. From architecture to execution, with taste and discipline."
         primaryCta={{ label: "Explore Portfolio", href: "#portfolio" }}
         secondaryCta={{ label: "Contact Me", href: "#contact" }}
       />
-      
+
       <section id="about" className="galaxy stars border-t border-white/10">
         <About />
       </section>
@@ -24,15 +25,11 @@ export default function Page() {
       </section>
 
       <section id="portfolio" className="galaxy stars border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20">
-          <p className="text-white/70">Portfolio section placeholder</p>
-        </div>
+        <Portfolio />
       </section>
 
       <section id="contact" className="galaxy stars border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20">
-          <p className="text-white/70">Contact section placeholder</p>
-        </div>
+        <Contact />
       </section>
     </main>
   );
