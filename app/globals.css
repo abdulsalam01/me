@@ -29,6 +29,40 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+   LEAN MODE (default)
+   - Theme stays the same
+   - Animations become "mostly static"
+   - Turn on full FX by setting: <html data-anim="on">
+========================= */
+
+:root {
+  --fx-anim: 0;
+  /* 0 = lean, 1 = full */
+  --fx-drift-opacity: 0.22;
+  --fx-stars-opacity: 0.22;
+  --fx-scanlines-opacity: 0.10;
+  --fx-glow-opacity: 0.70;
+  --fx-shadow: none;
+  /* avoid costly drop-shadow on huge layers */
+}
+
+html[data-anim="on"] {
+  --fx-anim: 1;
+  --fx-drift-opacity: 0.35;
+  --fx-stars-opacity: 0.35;
+  --fx-scanlines-opacity: 0.18;
+  --fx-glow-opacity: 0.85;
+  --fx-shadow: drop-shadow(0 0 2px rgba(255, 255, 255, 0.18));
+}
+
+/* Respect user preference (always win) */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fx-anim: 0;
+  }
+}
+
 section[id] {
   scroll-margin-top: 88px;
 }
@@ -53,9 +87,17 @@ section[id] {
   background-repeat: repeat;
   background-size: 260px 260px;
   pointer-events: none;
-  opacity: 0.6;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
-  animation: drift 80s linear infinite;
+  opacity: var(--fx-stars-opacity);
+  filter: var(--fx-shadow);
+  /* ✅ no filter in lean mode */
+  transform: translate3d(0, 0, 0);
+}
+
+/* Only animate when FULL FX enabled */
+html[data-anim="on"] .stars::before,
+html[data-anim="on"] .stars::after {
+  animation: drift 120s linear infinite;
+  /* slower = fewer frames overall */
 }
 
 .stars::before {
@@ -67,14 +109,14 @@ section[id] {
     radial-gradient(1px 1px at 40% 40%, rgba(255, 255, 255, 0.7) 50%, transparent 52%);
 }
 
+/* keep your different after settings */
 .stars::after {
-  opacity: 0.35;
+  opacity: calc(var(--fx-stars-opacity) * 0.7);
   background-size: 340px 340px;
-  animation-duration: 130s;
-  background-image:
-    radial-gradient(1px 1px at 15% 60%, rgba(255, 255, 255, 0.7) 50%, transparent 52%),
-    radial-gradient(1px 1px at 55% 15%, rgba(255, 255, 255, 0.6) 50%, transparent 52%),
-    radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.6) 50%, transparent 52%);
+}
+
+html[data-anim="on"] .stars::after {
+  animation-duration: 180s;
 }
 
 @keyframes drift {
@@ -168,7 +210,7 @@ section[id] {
 
 /* star dust */
 .hero-stars {
-  opacity: 0.35;
+  opacity: var(--fx-stars-opacity);
   background-size: 260px 260px;
   background-image:
     radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.85) 50%, transparent 55%),
@@ -176,8 +218,12 @@ section[id] {
     radial-gradient(1px 1px at 70% 30%, rgba(255, 255, 255, 0.75) 50%, transparent 55%),
     radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
     radial-gradient(1px 1px at 40% 40%, rgba(255, 255, 255, 0.6) 50%, transparent 55%);
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
-  animation: heroDrift 90s linear infinite;
+  filter: var(--fx-shadow);
+  transform: translate3d(0, 0, 0);
+}
+
+html[data-anim="on"] .hero-stars {
+  animation: heroDrift 140s linear infinite;
 }
 
 @keyframes heroDrift {
@@ -192,22 +238,30 @@ section[id] {
 
 /* cinematic scanlines */
 .hero-scanlines {
-  opacity: 0.18;
-  mix-blend-mode: overlay;
+  opacity: var(--fx-scanlines-opacity);
   background: repeating-linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.10) 0px,
-      rgba(255, 255, 255, 0.10) 1px,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 1px,
       transparent 2px,
       transparent 6px);
+  /* ✅ remove mix-blend-mode: overlay; (expensive on big surfaces) */
 }
 
-/* title animation */
 .hero-title {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.95));
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.95));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shimmer 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.10));
+  /* small static glow */
+}
+
+/* animate only when FULL FX enabled */
+html[data-anim="on"] .hero-title {
+  animation: shimmer 10s ease-in-out infinite;
 }
 
 @keyframes shimmer {
@@ -222,9 +276,13 @@ section[id] {
   }
 }
 
-/* scroll cue bar */
 .hero-scrollbar {
-  animation: scrollBar 1.4s ease-in-out infinite;
+  opacity: 0.7;
+  transform: translateX(0);
+}
+
+html[data-anim="on"] .hero-scrollbar {
+  animation: scrollBar 1.8s ease-in-out infinite;
 }
 
 @keyframes scrollBar {
@@ -242,6 +300,33 @@ section[id] {
     transform: translateX(-10%);
     opacity: 0.4;
   }
+}
+
+.about-stars,
+.skills-stars,
+.portfolio-stars,
+.contact-stars {
+  filter: var(--fx-shadow);
+  opacity: 0.18;
+  /* keep subtle */
+  transform: translate3d(0, 0, 0);
+}
+
+/* only animate in full mode */
+html[data-anim="on"] .about-stars {
+  animation: aboutDrift 180s linear infinite;
+}
+
+html[data-anim="on"] .skills-stars {
+  animation: skillsDrift 200s linear infinite;
+}
+
+html[data-anim="on"] .portfolio-stars {
+  animation: portfolioDrift 220s linear infinite;
+}
+
+html[data-anim="on"] .contact-stars {
+  animation: contactDrift 240s linear infinite;
 }
 
 /* === Showreel readability helpers === */
@@ -315,9 +400,15 @@ section[id] {
 .about-orbitRing {
   background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.10), transparent 55%),
-    conic-gradient(from 180deg, rgba(120, 90, 255, 0.25), rgba(0, 200, 255, 0.18), rgba(255, 80, 180, 0.12), rgba(120, 90, 255, 0.25));
-  filter: blur(22px);
-  opacity: 0.35;
+    conic-gradient(from 180deg,
+      rgba(120, 90, 255, 0.22),
+      rgba(0, 200, 255, 0.16),
+      rgba(255, 80, 180, 0.10),
+      rgba(120, 90, 255, 0.22));
+  filter: blur(10px);
+  /* ✅ was 22px */
+  opacity: 0.28;
+  /* ✅ was 0.35 */
 }
 
 /* Title shimmer */
@@ -436,20 +527,24 @@ section[id] {
 }
 
 /* orbit rings */
-.skills-orbit {
+.skills-orbit,
+.skills-orbit2 {
   fill: none;
   stroke: rgba(255, 255, 255, 0.10);
   stroke-width: 0.35;
   stroke-dasharray: 1.5 1.2;
   opacity: 0.7;
-  animation: orbitSpin 18s linear infinite;
   transform-origin: 52px 52px;
+  transform: rotate(0deg);
 }
 
-.skills-orbit2 {
-  opacity: 0.55;
-  animation-duration: 26s;
-  animation-direction: reverse;
+/* animate only in full mode OR on hover of the constellation box */
+html[data-anim="on"] .skills-orbit {
+  animation: orbitSpin 26s linear infinite;
+}
+
+html[data-anim="on"] .skills-orbit2 {
+  animation: orbitSpin 36s linear infinite reverse;
 }
 
 @keyframes orbitSpin {
@@ -774,5 +869,11 @@ section[id] {
   100% {
     transform: scale(0.7);
     opacity: 0.15;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    transition-duration: 160ms !important;
   }
 }
